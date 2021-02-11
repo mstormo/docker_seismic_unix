@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.17
+FROM phusion/baseimage:18.04-1.0.0
 MAINTAINER Marius Storm-Olsen <mstormo@gmail.no>
 
 LABEL Description="Seismic Unix on a proper Ubuntu 14.04 LTS base"
@@ -12,10 +12,10 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     libx11-dev \
     libxt6 libxt-dev \
-    && curl -o /root/cwp_su_all_44R0.tgz -SL "ftp://ftp.cwp.mines.edu/pub/cwpcodes/cwp_su_all_44R0.tgz" \
+    && curl -o /root/cwp_su_all_44R19.tgz -SL "https://nextcloud.seismic-unix.org/s/LZpzc8jMzbWG9BZ/download?path=%2F&files=cwp_su_all_44R19.tgz" \
     && mkdir /root/cwp \
-    && tar zxf /root/cwp_su_all_44R0.tgz -C /root/cwp \
-    && rm /root/cwp_su_all_44R0.tgz \
+    && tar zxf /root/cwp_su_all_44R19.tgz -C /root/cwp \
+    && rm /root/cwp_su_all_44R19.tgz \
     && /bin/bash -c \
        'echo exit 0 > /root/cwp/src/license.sh \
        && echo exit 0 > /root/cwp/src/mailhome.sh \
